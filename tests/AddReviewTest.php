@@ -11,7 +11,7 @@ class AddReviewTest extends TestCase
     public function testDoRequest()
     {
         try{
-            $client = new AddReview("http://121.10.217.134:7010/sys/webservice/kmReviewWebserviceService?wsdl");
+            $client = new AddReview(Config::$wsdl);
             $client->setParam('docSubject', '这是一个测试来自于WebService');
             $client->setParam('fdTemplateId', '1845a6e1c88ba11888755e74cbbb8cf9');
             $client->setParam('docCreator', [

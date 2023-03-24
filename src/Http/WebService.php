@@ -12,7 +12,7 @@ use SoapHeader;
 
 class WebService
 {
-    private string $wsdl = "";                           //地址
+    protected string $wsdl = "";                           //地址
     protected ?SoapClient $soapClient  = null;           //请求客户端
 
     /**
@@ -29,14 +29,6 @@ class WebService
         } catch (\SoapFault $e) {
             throw new Exception($e->getMessage(), $e->getCode());
         }
-    }
-
-    /**
-     * @param $wsdl
-     */
-    protected function setWsdl($wsdl)
-    {
-        $this->wsdl = $wsdl;
     }
 
     /**
