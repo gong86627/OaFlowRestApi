@@ -1,0 +1,28 @@
+{
+  "name": "gong86627/oa-flow-reset-api",
+  "description": "与OA通过RestApi进行通讯",
+  "keywords": [
+    "gong86627",
+    "oa",
+    "rest-api"
+  ],
+  "author": [
+    {
+      "name": "yuan lin Gong",
+      "email": "gong86627@qq.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^7.0.1",
+  },
+  "autoload": {
+    "psr-4": {
+      "gong86627\\OaFlowRestApi\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
+}
