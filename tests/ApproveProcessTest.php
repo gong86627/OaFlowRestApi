@@ -20,7 +20,7 @@ class ApproveProcessTest extends TestCase
             ]);
             $client->setFlowParam('operationType', '通过');
             $client->setFlowParam('auditNote', '要得，就是这样干');
-            $client->setFlowParam('changeNodeHandlers', ["N9" => ["185334d7cb27c53065d1e3a44758b143"]]);
+            $client->setFlowParam('changeNodeHandlers', ["N9" => ["185334d7cb27c53065d1e3a44758b143"]]);   //设置下一节点的处理人,可以不设置
 
             $res = $client->send();
             var_dump($res);
