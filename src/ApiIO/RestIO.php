@@ -8,7 +8,7 @@ namespace gong86627\OaFlowRestApi\ApiIO;
  *
  * @package stlswm\MicroserviceAssistant\ApiIO
  */
-class IO
+class RestIO
 {
     /**
      * @param int    $code
@@ -42,7 +42,7 @@ class IO
      */
     public static function success(array $data, string $msg = "ok"): array
     {
-        return self::out(ErrCode::OK, $data, $msg);
+        return self::out(RestErrCode::OK, $data, $msg);
     }
 
     /**

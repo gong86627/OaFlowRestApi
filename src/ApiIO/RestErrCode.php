@@ -9,7 +9,7 @@ namespace gong86627\OaFlowRestApi\ApiIO;
  *
  * @package stlswm\MicroserviceAssistant\ApiIO
  */
-class ErrCode
+class RestErrCode
 {
     const OK = 0;//成功
     const ParamEmpty = 1000;//参数为空

@@ -5,8 +5,8 @@ namespace gong86627\OaFlowRestApi\Http;
 
 
 use Exception;
-use gong86627\OaFlowRestApi\ApiIO\ErrCode;
-use gong86627\OaFlowRestApi\ApiIO\IO;
+use gong86627\OaFlowRestApi\ApiIO\RestErrCode;
+use gong86627\OaFlowRestApi\ApiIO\RestIO;
 use SoapClient;
 use SoapHeader;
 
@@ -39,10 +39,10 @@ class WebService
      */
     protected function execute($serviceBean, $params): array
     {
-        if(empty($this->soapClient)) throw new Exception('No soap client', ErrCode::Business);
+        if(empty($this->soapClient)) throw new Exception('No soap client', RestErrCode::Business);
         $soapRerun = $this->soapClient->$serviceBean($params);
         $fdId = $soapRerun->return ?? null;
-        if(empty($fdId)) throw new Exception('return null for soap', ErrCode::Business);
-        return IO::success(['fdId' => $fdId]);
+        if(empty($fdId)) throw new Exception('return null for soap', RestErrCode::Business);
+        return RestIO::success(['fdId' => $fdId]);
     }
 }

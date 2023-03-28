@@ -4,7 +4,7 @@
 namespace gong86627\OaFlowRestApi\Business;
 
 use Exception;
-use gong86627\OaFlowRestApi\ApiIO\ErrCode;
+use gong86627\OaFlowRestApi\ApiIO\RestErrCode;
 use gong86627\OaFlowRestApi\Http\WebService;
 
 class CommonService extends WebService
@@ -71,14 +71,14 @@ class CommonService extends WebService
         switch ($name) {
             case 'operationType':
                 if (array_search($val, $this->operationType) === false) {
-                    throw new Exception('operationType is not supported', ErrCode::Business);
+                    throw new Exception('operationType is not supported', RestErrCode::Business);
                 }
                 $operatorArr = array_flip($this->operationType);
                 $val = $operatorArr[$val];
                 break;
             case 'changeNodeHandlers':
                 if (!is_array($val) || empty($val)) {
-                    throw new Exception('Invalid changeNodeHandlers', ErrCode::Business);
+                    throw new Exception('Invalid changeNodeHandlers', RestErrCode::Business);
                 }
                 $nodes = [];
                 foreach ($val as $key => $users) {
@@ -101,10 +101,10 @@ class CommonService extends WebService
     protected function processSendParams(): array
     {
         if (empty($this->fdId) || empty($this->fdTemplateId) || empty($this->docCreator) || empty($this->docSubject) || empty($this->flowParam)) {
-            throw new Exception('You must specify', ErrCode::ParamEmpty);
+            throw new Exception('You must specify', RestErrCode::ParamEmpty);
         }
         if (empty($this->flowParam['operationType']) || empty($this->flowParam['auditNote'])) {
-            throw new Exception('flow parameter is not set!', ErrCode::ParamEmpty);
+            throw new Exception('flow parameter is not set!', RestErrCode::ParamEmpty);
         }
 
         $body = [

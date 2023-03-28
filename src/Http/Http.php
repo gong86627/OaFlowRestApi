@@ -2,7 +2,7 @@
 namespace gong86627\OaFlowRestApi\Http;
 
 
-use gong86627\OaFlowRestApi\ApiIO\ErrCode;
+use gong86627\OaFlowRestApi\ApiIO\RestErrCode;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Util\Exception;
@@ -50,7 +50,7 @@ class Http
 
             return $response->getBody()->getContents();
         }catch (GuzzleException $e){
-            throw new Exception($e->getMessage(), ErrCode::NetErr);
+            throw new Exception($e->getMessage(), RestErrCode::NetErr);
         }
     }
 }

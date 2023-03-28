@@ -5,8 +5,8 @@ namespace gong86627\OaFlowRestApi\Business;
 
 
 use Exception;
-use gong86627\OaFlowRestApi\ApiIO\ErrCode;
-use gong86627\OaFlowRestApi\ApiIO\IO;
+use gong86627\OaFlowRestApi\ApiIO\RestErrCode;
+use gong86627\OaFlowRestApi\ApiIO\RestIO;
 use gong86627\OaFlowRestApi\Http\Http;
 
 class CheckFlowDetail extends Http
@@ -49,15 +49,15 @@ class CheckFlowDetail extends Http
     {
         try {
             if(empty($this->fdId)){
-                throw new Exception('fdId is required', ErrCode::ParamError);
+                throw new Exception('fdId is required', RestErrCode::ParamError);
             }
             $data = $this->request("POST", $this->uri, ["fdId" => $this->fdId]);
 
             if(!$data){
-                throw new Exception('response data is Null', ErrCode::Business);
+                throw new Exception('response data is Null', RestErrCode::Business);
             }
 
-            return IO::success(json_decode($data, true));
+            return RestIO::success(json_decode($data, true));
         } catch (Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode());
         }
