@@ -65,6 +65,10 @@ class AddReview extends CommonService
             $body['attachmentForms'] = $this->attachmentForms;
         }
 
+        if($this->flowParam){
+            $body["flowParam"] = json_encode($this->flowParam);
+        }
+
         return ['arg0' => $body];
     }
 }
